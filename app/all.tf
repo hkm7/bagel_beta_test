@@ -15,6 +15,7 @@ resource "aws_instance" "web_server" {
   instance_type          = var.instance_type
   key_name              = var.key_pair_name
   vpc_security_group_ids = var.security_groups
+  subnet_id = var.subnet_id
   primary_network_interface = {
     network_interface_id = 
   }
