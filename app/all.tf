@@ -1,14 +1,14 @@
 #######
 # main.tf
 ######
-resource "aws_network_interface" "main" {
-  subnet_id       = var.subnet_id
-  security_groups = var.security_groups
+#resource "aws_network_interface" "main" {
+#  subnet_id       = var.subnet_id
+#  security_groups = var.security_groups
 
-  tags = {
-    Name = "ubuntu-eni"
-  }
-}
+#  tags = {
+#    Name = "ubuntu-eni"
+#  }
+#}
 
 resource "aws_instance" "web_server" {
   ami                    = var.ami_id
@@ -16,9 +16,9 @@ resource "aws_instance" "web_server" {
   key_name              = var.key_pair_name
   vpc_security_group_ids = var.security_groups
   subnet_id = var.subnet_id
-  primary_network_interface = {
-    network_interface_id = 
-  }
+  #primary_network_interface = {
+  #  network_interface_id = 
+  #}
   tags = {
     Name = var.instance_name
   }
@@ -91,7 +91,7 @@ variable "security_groups"{
 }
 
 variable "subnet_id" {
-  type = "string"
+  type = string
   description = "Enter the subnet id"
   default = "subnet-037949bf6b411e4b5"
 }
